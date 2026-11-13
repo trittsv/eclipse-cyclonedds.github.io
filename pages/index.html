@@ -78,8 +78,8 @@
            </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link p-2" href="https://twitter.com/EclipseCyclone" target="_blank" rel="noopener" aria-label="Twitter">
-            <span class="fab fa-twitter fa-lg"></span>
+          <a class="nav-link p-2" href="https://x.com/EclipseCyclone" target="_blank" rel="noopener" aria-label="X">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false" style="vertical-align: -.125em"><path d="M18.901 1.153h3.68l-8.041 9.19L24 23.846h-7.406l-5.8-7.584-6.64 7.584H.47l8.601-9.835L0 1.154h7.594l5.243 6.932Zm-1.291 20.491h2.039L6.486 3.24H4.298Z"/></svg>
            </a>
         </li>
         <li class="nav-item">
@@ -118,60 +118,92 @@
         <h4>Shared topics. Connected endpoints.</h4>
         <p>DataWriters publish samples on a Topic. Matching DataReaders receive them directly, across your DDS domain.</p>
         <div class="home-data-visual" id="home-ecosystem-motion">
-          <svg class="home-data-network" viewBox="0 0 800 420" role="img" aria-labelledby="dds-network-title dds-network-desc">
-            <title id="dds-network-title">Topics connect DDS DataWriter and DataReader endpoints</title>
-            <desc id="dds-network-desc">Within one DDS domain, a sensor participant has a Publisher containing Temperature and Status DataWriters. A controller Subscriber has a Temperature DataReader. A dashboard Subscriber has Temperature and Status DataReaders. Blue samples flow directly from the Temperature writer to both matching readers; green samples flow from the Status writer to its reader. Topics name and type the data; they are not routing servers. Endpoint matching also depends on compatible QoS.</desc>
-            <path class="home-domain" d="M105 391 C49 391 17 353 25 307 C-5 270 10 214 53 195 C26 133 70 80 135 85 C149 23 231 6 282 48 C326 0 409 9 438 62 C499 16 586 39 600 95 C667 57 746 95 745 157 C802 174 810 241 775 276 C803 333 758 389 700 391 Z"/>
-            <g transform="translate(60 45)">
-            <text class="home-domain-label" x="230" y="28">DDS DOMAIN · PEER-TO-PEER</text>
-            <g class="home-network-links" fill="none">
-              <path class="home-flow-temperature" d="M172 147 C300 147 355 119 496 119"/>
-              <path class="home-flow-temperature" d="M172 147 C310 147 355 250 496 250"/>
-              <path class="home-flow-status" d="M172 251 C310 251 355 284 496 284"/>
+          <svg class="home-data-network" viewBox="0 68 800 462" role="img" aria-labelledby="dds-network-title dds-network-desc">
+            <title id="dds-network-title">DDS endpoints on separate PCs share topics</title>
+            <desc id="dds-network-desc">PC labels identify the machines and their DDS entities. A central cloud labelled Domain ID 3 surrounds the logical topic bars. All shown participants belong to DDS domain 3; the cloud is not a broker or server. The Sensor PC has two Publishers, each with one DataWriter. The Temperature Publisher lists partition Sensor-A; the Status Publisher has no explicit partition and uses the default partition. The Controller Subscriber lists Sensor-A and reads Temperature. The Dashboard has two Subscribers: Subscriber 1 uses Sensor-* for its Temperature DataReader; Subscriber 2 has no explicit partition and uses the default partition for its Status DataReader. Partition QoS belongs to Publishers and Subscribers; each writer uses its parent Publisher’s partitions. Two central bars represent the logical topics, not brokers or routing servers. Temperature reaches both Controller and Dashboard. Status reaches the Dashboard through matching default partitions. Matching also depends on compatible QoS.</desc>
+            <g class="home-topic-cloud" transform="translate(0 90)" aria-hidden="true">
+              <path d="M283 305 C252 305 239 285 248 262 C229 242 236 229 251 218 C231 190 242 158 268 151 C261 121 286 97 317 108 C331 77 375 73 397 98 C426 74 466 88 474 117 C506 101 535 125 530 153 C554 165 560 194 545 215 C567 238 552 262 537 269 C549 293 531 307 505 305 Z"/>
+              <text x="400" y="123" text-anchor="middle">Domain ID 3</text>
+              <text class="home-domain-subtitle" x="400" y="140" text-anchor="middle">Global Data Space</text>
             </g>
-            <g class="home-topic-labels" text-anchor="middle">
-              <text class="home-temperature-label" x="331" y="99">Topic: Temperature</text>
-              <text class="home-topic-type" x="331" y="116">TemperatureData</text>
-              <text class="home-status-label" x="329" y="287">Topic: Status</text>
-              <text class="home-topic-type" x="329" y="304">StatusData</text>
+            <g class="home-network-links" fill="none">
+              <path class="home-flow-temperature" d="M205 248 C238 248 237 265 270 265"/>
+              <path class="home-flow-temperature" d="M530 265 C565 265 565 171 600 171"/>
+              <path class="home-flow-temperature" d="M530 265 C575 265 555 348 600 348"/>
+              <path class="home-flow-status" d="M205 330 C235 330 240 335 270 335"/>
+              <path class="home-flow-status" d="M530 335 C565 335 565 430 600 430"/>
+            </g>
+            <g class="home-topic-bars" transform="translate(0 90)" text-anchor="middle">
+              <rect class="home-temperature-bar" x="270" y="149" width="260" height="52" rx="8"/>
+              <text class="home-temperature-label" x="400" y="171">Topic: Temperature</text>
+              <text class="home-topic-type" x="400" y="188">TemperatureData</text>
+              <rect class="home-status-bar" x="270" y="219" width="260" height="52" rx="8"/>
+              <text class="home-status-label" x="400" y="241">Topic: Status</text>
+              <text class="home-topic-type" x="400" y="258">StatusData</text>
             </g>
             <g class="home-network-packets" aria-hidden="true">
-              <circle r="4"><animateMotion begin="-1s" dur="3.4s" repeatCount="indefinite" path="M172 147 C300 147 355 119 496 119"/></circle>
-              <circle r="4"><animateMotion begin="-1s" dur="3.8s" repeatCount="indefinite" path="M172 147 C310 147 355 250 496 250"/></circle>
-              <circle class="home-status-packet" r="4"><animateMotion begin="-1s" dur="3.2s" repeatCount="indefinite" path="M172 251 C310 251 355 284 496 284"/></circle>
+              <circle r="4"><animateMotion begin="-1s" dur="2.5s" repeatCount="indefinite" path="M205 248 C238 248 237 265 270 265"/></circle>
+              <circle r="4"><animateMotion begin="-1s" dur="2.8s" repeatCount="indefinite" path="M530 265 C565 265 565 171 600 171"/></circle>
+              <circle r="4"><animateMotion begin="-1s" dur="3.6s" repeatCount="indefinite" path="M530 265 C575 265 555 348 600 348"/></circle>
+              <circle class="home-status-packet" r="4"><animateMotion begin="-1s" dur="2.7s" repeatCount="indefinite" path="M205 330 C235 330 240 335 270 335"/></circle>
+              <circle class="home-status-packet" r="4"><animateMotion begin="-1s" dur="3.1s" repeatCount="indefinite" path="M530 335 C565 335 565 430 600 430"/></circle>
             </g>
             <g class="home-network-nodes">
-              <rect class="home-participant" x="12" y="43" width="176" height="267" rx="8"/>
-              <text class="home-participant-title" x="26" y="66">Sensor</text>
-              <text class="home-entity-label" x="26" y="84">DomainParticipant</text>
-              <rect class="home-entity-group" x="22" y="98" width="156" height="200" rx="6"/>
-              <text class="home-group-label" x="32" y="119">Publisher</text>
-              <rect class="home-temperature-endpoint" x="30" y="132" width="142" height="36" rx="5"/>
-              <text x="40" y="155">DataWriter</text>
-              <text class="home-endpoint-topic" x="32" y="186">Temperature</text>
-              <rect class="home-status-endpoint" x="30" y="236" width="142" height="36" rx="5"/>
-              <text x="40" y="259">DataWriter</text>
-              <text class="home-endpoint-topic" x="32" y="289">Status</text>
-              <rect class="home-participant" x="480" y="43" width="188" height="110" rx="8"/>
-              <text class="home-participant-title" x="494" y="66">Controller</text>
-              <text class="home-entity-label" x="494" y="84">DomainParticipant</text>
-              <rect class="home-entity-group" x="490" y="91" width="168" height="53" rx="6"/>
-              <text class="home-group-label" x="500" y="107">Subscriber</text>
-              <rect class="home-temperature-endpoint" x="496" y="112" width="156" height="26" rx="5"/>
-              <text x="506" y="130">DataReader</text>
-              <rect class="home-participant" x="480" y="168" width="188" height="142" rx="8"/>
-              <text class="home-participant-title" x="494" y="191">Dashboard</text>
-              <text class="home-entity-label" x="494" y="209">DomainParticipant</text>
-              <rect class="home-entity-group" x="490" y="216" width="168" height="86" rx="6"/>
-              <text class="home-group-label" x="500" y="232">Subscriber</text>
-              <rect class="home-temperature-endpoint" x="496" y="237" width="156" height="26" rx="5"/>
-              <text x="506" y="255">DataReader</text>
-              <rect class="home-status-endpoint" x="496" y="271" width="156" height="26" rx="5"/>
-              <text x="506" y="289">DataReader</text>
+
+              <text class="home-entity-label" x="125" y="185" text-anchor="middle">DomainParticipant</text>
+              <rect class="home-entity-group" x="35" y="197" width="180" height="90" rx="7"/>
+              <text class="home-group-label" x="45" y="210">Publisher 1</text>
+              <g>
+                <title>Temperature DataWriter — partition inherited from Publisher 1</title>
+                <rect class="home-temperature-endpoint" x="45" y="215" width="160" height="66" rx="5"/>
+                <text x="55" y="230">DataWriter</text>
+                <text class="home-partition-caption" x="55" y="244">Partition</text>
+                <rect class="home-partition-chip" x="53" y="252" width="68" height="21" rx="4"/>
+                <text class="home-partition-chip-text" x="87" y="266" text-anchor="middle">Sensor-A</text>
+              </g>
+              <rect class="home-entity-group" x="35" y="293" width="180" height="64" rx="7"/>
+              <text class="home-group-label" x="45" y="306">Publisher 2</text>
+              <g>
+                <title>Status DataWriter — Publisher 2 uses the default partition</title>
+                <rect class="home-status-endpoint" x="45" y="311" width="160" height="38" rx="5"/>
+                <text x="55" y="326">DataWriter</text>
+              </g>
+
+              <text class="home-entity-label" x="674" y="105" text-anchor="middle">DomainParticipant</text>
+              <rect class="home-entity-group" x="589" y="115" width="179" height="96" rx="7"/>
+              <text class="home-group-label" x="600" y="131">Subscriber</text>
+              <g>
+                <title>Temperature DataReader — partition inherited from its Subscriber</title>
+                <rect class="home-temperature-endpoint" x="600" y="136" width="156" height="66" rx="5"/>
+                <text x="610" y="151">DataReader</text>
+                <text class="home-partition-caption" x="610" y="165">Partition</text>
+                <rect class="home-partition-chip" x="608" y="174" width="68" height="21" rx="4"/>
+                <text class="home-partition-chip-text" x="642" y="188" text-anchor="middle">Sensor-A</text>
+              </g>
+
+              <text class="home-entity-label" x="674" y="284" text-anchor="middle">DomainParticipant</text>
+              <rect class="home-entity-group" x="589" y="294" width="179" height="96" rx="7"/>
+              <text class="home-group-label" x="600" y="310">Subscriber 1</text>
+              <g>
+                <title>Temperature DataReader — partition pattern inherited from its Subscriber</title>
+                <rect class="home-temperature-endpoint" x="600" y="315" width="156" height="66" rx="5"/>
+                <text x="610" y="331">DataReader</text>
+                <text class="home-partition-caption" x="610" y="345">Partition</text>
+                <rect class="home-partition-chip" x="608" y="353" width="68" height="21" rx="4"/>
+                <text class="home-partition-chip-text" x="642" y="367" text-anchor="middle">Sensor-*</text>
+              </g>
+              <rect class="home-entity-group" x="589" y="393" width="179" height="64" rx="7"/>
+              <text class="home-group-label" x="600" y="409">Subscriber 2</text>
+              <g>
+                <title>Status DataReader — Subscriber 2 uses the default partition</title>
+                <rect class="home-status-endpoint" x="600" y="414" width="156" height="32" rx="5"/>
+                <text x="610" y="434">DataReader</text>
+              </g>
             </g>
-            </g>
+            <text class="home-partition-inheritance" x="400" y="502" text-anchor="middle">Partition labels are inherited from the Publisher / Subscriber.</text>
+            <text class="home-partition-inheritance" x="400" y="518" text-anchor="middle">No partition label = default partition.</text>
           </svg>
-          <div class="home-network-caption"><span><i aria-hidden="true"></i> Topics match data. Endpoints exchange samples.</span><button id="home-motion-toggle" type="button" aria-controls="home-ecosystem-motion" hidden>Pause animation</button></div>
+          <div class="home-network-caption"><span><i aria-hidden="true"></i> Topic bars show logical data channels; endpoints communicate directly.</span><button id="home-motion-toggle" type="button" aria-controls="home-ecosystem-motion" hidden>Pause animation</button></div>
         </div>
       </div>
       <div class="home-insight">
@@ -179,7 +211,7 @@
           <p class="home-eyebrow">See your system in action</p>
           <h4>Cyclone DDS Insight</h4>
           <p>Discover topics, inspect readers and writers, and spot QoS mismatches in a graphical view of your DDS system.</p>
-          <a class="home-insight-link" href="/docs/cyclonedds-insight/latest/index.html">Explore Insight <span aria-hidden="true">&rarr;</span></a>
+          <a class="home-insight-link" href="https://github.com/eclipse-cyclonedds/cyclonedds-insight">Explore Insight <span aria-hidden="true">&rarr;</span></a>
         </div>
         <a class="home-insight-preview" href="/images/cyclonedds-insight.png" aria-label="View the Cyclone DDS Insight screenshot at full size"><img src="/images/cyclonedds-insight.png" width="2424" height="1580" alt="Cyclone DDS Insight showing topics, writers and readers"></a>
       </div>
@@ -239,8 +271,8 @@
   <section class="home-languages" aria-labelledby="home-languages-title">
     <div>
       <p class="home-eyebrow">One core. Multiple languages.</p>
-      <h4 id="home-languages-title">Built on C. Open to your language.</h4>
-      <p>A native C core with language bindings for your applications.</p>
+      <h4 id="home-languages-title">Native C performance.</h4>
+      <p>A fast, lightweight C core with direct control over memory and resources, plus language bindings for your applications.</p>
     </div>
     <nav class="home-language-tree" aria-label="C core and its language bindings">
       <a class="home-language-core" href="/docs/cyclonedds/latest/getting_started/index.html"><strong>C</strong><span>Cyclone DDS core</span></a>
@@ -287,7 +319,7 @@
           <div class="col-6 col-md-2 pb-2">
             <h5>Follow us</h5>
             <p><a href="https://github.com/eclipse-cyclonedds/cyclonedds"><span class="fab fa-github"></span>&nbsp;GitHub</a></p>
-            <p><a href="https://twitter.com/EclipseCyclone"><span class="fab fa-twitter"></span>&nbsp;Twitter</a></p>
+            <p><a href="https://x.com/EclipseCyclone"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false" style="vertical-align: -.125em"><path d="M18.901 1.153h3.68l-8.041 9.19L24 23.846h-7.406l-5.8-7.584-6.64 7.584H.47l8.601-9.835L0 1.154h7.594l5.243 6.932Zm-1.291 20.491h2.039L6.486 3.24H4.298Z"/></svg>&nbsp;X</a></p>
             <p><a href="https://discord.gg/BkRYQPpZVV"><span class="fab fa-discord"></span>&nbsp;Discord</a></p>
             <p><a href="/docs"><span class="fa fa-info-circle"></span>&nbsp;About</a></p>
           </div>

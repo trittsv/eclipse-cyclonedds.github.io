@@ -157,24 +157,25 @@
   .home-network-packets { display: none; }
 }
 .home-data-visual.is-paused .home-network-packets { visibility: hidden; }
-/* DDS entities and topic-specific endpoint connections. */
-.home-domain { fill: #eaf3fb; stroke: #c1d9ec; stroke-width: 1.5; }
-.home-domain-label { fill: #526b80; font-size: 11px; letter-spacing: 1.5px; }
+/* Topic cloud illustrates the shared domain; endpoints sit on their PCs. */
+.home-topic-cloud path { fill: #eaf3fb; stroke: #bdd6e9; stroke-width: 1.25; }
+.home-topic-cloud text { fill: #6e96b2; font-size: 18px; font-weight: 600; letter-spacing: .04em; }
 .home-network-links .home-flow-temperature { stroke: #2795d2; }
 .home-network-links .home-flow-status { stroke: #329181; }
-.home-network-nodes .home-participant { fill: #fff; stroke: #b5c9d9; }
-.home-network-nodes .home-entity-group { fill: #f2f6fa; stroke: #dde6ee; }
+.home-network-nodes .home-entity-group { fill: #f7fafc; stroke: #d5e3ee; }
 .home-network-nodes .home-temperature-endpoint { fill: #e7f4fd; stroke: #68acdc; }
 .home-network-nodes .home-status-endpoint { fill: #e6f4f0; stroke: #6aaf9e; }
 .home-network-nodes text { font-size: 13px; }
-.home-network-nodes .home-participant-title { font-size: 14px; font-weight: 600; }
+.home-network-nodes .home-participant-title { font-size: 15px; font-weight: 600; }
 .home-network-nodes .home-entity-label { font-size: 10px; fill: #657c8e; }
-.home-network-nodes .home-group-label { font-size: 10px; fill: #526b80; }
-.home-network-nodes .home-endpoint-topic { font-size: 10px; fill: #526b80; }
-.home-topic-labels text { font-size: 12px; font-weight: 600; }
-.home-topic-labels .home-temperature-label { fill: #237cad; }
-.home-topic-labels .home-status-label { fill: #287b6d; }
-.home-topic-labels .home-topic-type { fill: #637c8e; font-size: 10px; font-weight: 400; }
+.home-network-nodes .home-group-label, .home-network-nodes .home-partition-caption { font-size: 10px; fill: #526b80; }
+.home-topic-bars rect { stroke-width: 1.5; }
+.home-temperature-bar { fill: #e1f1fc; stroke: #68acdc; }
+.home-status-bar { fill: #e2f3ed; stroke: #6aaf9e; }
+.home-topic-bars text { font-size: 14px; font-weight: 600; }
+.home-temperature-label { fill: #237cad; }
+.home-status-label { fill: #287b6d; }
+.home-topic-bars .home-topic-type { fill: #637c8e; font-size: 11px; font-weight: 400; }
 .home-network-packets .home-status-packet { fill: #329181; }
 .home-network-caption { margin-top: .6rem; }
 
@@ -260,3 +261,10 @@
   .home-language-branches a, .home-language-upcoming { flex-direction: row; justify-content: space-between; padding-inline: 1rem; }
   .home-hero-toggle { font-size: .6rem; }
 }
+
+
+.home-network-nodes .home-partition-chip { fill: #fff; stroke: #b8cfe0; stroke-width: .8; }
+.home-network-nodes .home-partition-chip-text { font-size: 10px; fill: #42657e; }
+.home-partition-inheritance { fill: #657c8e; font-size: 10px; }
+
+.home-topic-cloud .home-domain-subtitle { font-size: 11px; font-weight: 400; letter-spacing: .02em; }
