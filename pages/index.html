@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="/css/font-awesome.min.css">
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/syntax.css">
+    <link rel="stylesheet" href="/css/home.css">
     
   </head>
 
@@ -92,28 +93,98 @@
 
     
 <main>
-  <div class="container-fluid section" id="summary">
-    <div class="row align-items-center my-5 section" id="row">
-      <div class="col-12 col-md-6 mx-auto px-5 mb-3 text-center">
-        <img src="/images/cyclonedds.png" alt="cyclonedds" class="img-fluid w-50 align-middle"/>
-      </div>
-
-      <div class="col-12 col-md-6 order-md-2 text-center text-md-start pr-md-5 section"
-        id="building-portable-interoperable-distributed-datacentric-systems">
-        <h4>Building Portable &amp; Interoperable Distributed Datacentric Systems</h4>
-        <p>
-          Cyclone DDS is a high performing, OMG-DDS standard based data sharing technology which allows system
-          designers to create digital twins of their systems' entities to share their states, events, data-streams and
-          messages on the network in real-time and fault-tolerant way.
-        </p>
-        <p>
-          <a class="btn btn-sm ato-button" href="/docs/cyclonedds/latest/getting_started/index.html">
-            Get Started
-          </a>
-        </p>
+  <section class="home-summary" id="summary" aria-label="Welcome to Cyclone DDS">
+    <div class="home-intro" id="building-portable-interoperable-distributed-datacentric-systems">
+      <p class="home-eyebrow">Eclipse Cyclone DDS</p>
+      <h4>Building Portable &amp; Interoperable Distributed Datacentric Systems</h4>
+      <div class="home-intro-details">
+        <div class="home-hero-visual">
+          <img id="home-cyclone" src="/images/cyclone-still.png" width="600" height="600" alt="Cyclone DDS — a swirling blue cyclone" fetchpriority="high">
+          <button id="home-cyclone-toggle" class="home-hero-toggle" type="button" aria-controls="home-cyclone" hidden>Play animation</button>
+        </div>
+        <div class="home-intro-copy">
+          <p>Cyclone DDS is a high performing, OMG-DDS standard based data sharing technology which allows system
+            designers to create digital twins of their systems' entities to share their states, events, data-streams and
+            messages on the network in real-time and fault-tolerant way.</p>
+          <a class="btn btn-sm ato-button" href="/docs/cyclonedds/latest/getting_started/index.html">Get Started</a>
+        </div>
       </div>
     </div>
-  </div>
+  </section>
+  <section class="home-ecosystem" aria-label="DDS data distribution and developer tools">
+    <div class="home-ecosystem-inner">
+      <div class="home-data-panel">
+        <p class="home-eyebrow">Connected by data</p>
+        <h4>Shared topics. Connected endpoints.</h4>
+        <p>DataWriters publish samples on a Topic. Matching DataReaders receive them directly, across your DDS domain.</p>
+        <div class="home-data-visual" id="home-ecosystem-motion">
+          <svg class="home-data-network" viewBox="0 0 800 420" role="img" aria-labelledby="dds-network-title dds-network-desc">
+            <title id="dds-network-title">Topics connect DDS DataWriter and DataReader endpoints</title>
+            <desc id="dds-network-desc">Within one DDS domain, a sensor participant has a Publisher containing Temperature and Status DataWriters. A controller Subscriber has a Temperature DataReader. A dashboard Subscriber has Temperature and Status DataReaders. Blue samples flow directly from the Temperature writer to both matching readers; green samples flow from the Status writer to its reader. Topics name and type the data; they are not routing servers. Endpoint matching also depends on compatible QoS.</desc>
+            <path class="home-domain" d="M105 391 C49 391 17 353 25 307 C-5 270 10 214 53 195 C26 133 70 80 135 85 C149 23 231 6 282 48 C326 0 409 9 438 62 C499 16 586 39 600 95 C667 57 746 95 745 157 C802 174 810 241 775 276 C803 333 758 389 700 391 Z"/>
+            <g transform="translate(60 45)">
+            <text class="home-domain-label" x="230" y="28">DDS DOMAIN · PEER-TO-PEER</text>
+            <g class="home-network-links" fill="none">
+              <path class="home-flow-temperature" d="M172 147 C300 147 355 119 496 119"/>
+              <path class="home-flow-temperature" d="M172 147 C310 147 355 250 496 250"/>
+              <path class="home-flow-status" d="M172 251 C310 251 355 284 496 284"/>
+            </g>
+            <g class="home-topic-labels" text-anchor="middle">
+              <text class="home-temperature-label" x="331" y="99">Topic: Temperature</text>
+              <text class="home-topic-type" x="331" y="116">TemperatureData</text>
+              <text class="home-status-label" x="329" y="287">Topic: Status</text>
+              <text class="home-topic-type" x="329" y="304">StatusData</text>
+            </g>
+            <g class="home-network-packets" aria-hidden="true">
+              <circle r="4"><animateMotion begin="-1s" dur="3.4s" repeatCount="indefinite" path="M172 147 C300 147 355 119 496 119"/></circle>
+              <circle r="4"><animateMotion begin="-1s" dur="3.8s" repeatCount="indefinite" path="M172 147 C310 147 355 250 496 250"/></circle>
+              <circle class="home-status-packet" r="4"><animateMotion begin="-1s" dur="3.2s" repeatCount="indefinite" path="M172 251 C310 251 355 284 496 284"/></circle>
+            </g>
+            <g class="home-network-nodes">
+              <rect class="home-participant" x="12" y="43" width="176" height="267" rx="8"/>
+              <text class="home-participant-title" x="26" y="66">Sensor</text>
+              <text class="home-entity-label" x="26" y="84">DomainParticipant</text>
+              <rect class="home-entity-group" x="22" y="98" width="156" height="200" rx="6"/>
+              <text class="home-group-label" x="32" y="119">Publisher</text>
+              <rect class="home-temperature-endpoint" x="30" y="132" width="142" height="36" rx="5"/>
+              <text x="40" y="155">DataWriter</text>
+              <text class="home-endpoint-topic" x="32" y="186">Temperature</text>
+              <rect class="home-status-endpoint" x="30" y="236" width="142" height="36" rx="5"/>
+              <text x="40" y="259">DataWriter</text>
+              <text class="home-endpoint-topic" x="32" y="289">Status</text>
+              <rect class="home-participant" x="480" y="43" width="188" height="110" rx="8"/>
+              <text class="home-participant-title" x="494" y="66">Controller</text>
+              <text class="home-entity-label" x="494" y="84">DomainParticipant</text>
+              <rect class="home-entity-group" x="490" y="91" width="168" height="53" rx="6"/>
+              <text class="home-group-label" x="500" y="107">Subscriber</text>
+              <rect class="home-temperature-endpoint" x="496" y="112" width="156" height="26" rx="5"/>
+              <text x="506" y="130">DataReader</text>
+              <rect class="home-participant" x="480" y="168" width="188" height="142" rx="8"/>
+              <text class="home-participant-title" x="494" y="191">Dashboard</text>
+              <text class="home-entity-label" x="494" y="209">DomainParticipant</text>
+              <rect class="home-entity-group" x="490" y="216" width="168" height="86" rx="6"/>
+              <text class="home-group-label" x="500" y="232">Subscriber</text>
+              <rect class="home-temperature-endpoint" x="496" y="237" width="156" height="26" rx="5"/>
+              <text x="506" y="255">DataReader</text>
+              <rect class="home-status-endpoint" x="496" y="271" width="156" height="26" rx="5"/>
+              <text x="506" y="289">DataReader</text>
+            </g>
+            </g>
+          </svg>
+          <div class="home-network-caption"><span><i aria-hidden="true"></i> Topics match data. Endpoints exchange samples.</span><button id="home-motion-toggle" type="button" aria-controls="home-ecosystem-motion" hidden>Pause animation</button></div>
+        </div>
+      </div>
+      <div class="home-insight">
+        <div>
+          <p class="home-eyebrow">See your system in action</p>
+          <h4>Cyclone DDS Insight</h4>
+          <p>Discover topics, inspect readers and writers, and spot QoS mismatches in a graphical view of your DDS system.</p>
+          <a class="home-insight-link" href="/docs/cyclonedds-insight/latest/index.html">Explore Insight <span aria-hidden="true">&rarr;</span></a>
+        </div>
+        <a class="home-insight-preview" href="/images/cyclonedds-insight.png" aria-label="View the Cyclone DDS Insight screenshot at full size"><img src="/images/cyclonedds-insight.png" width="2424" height="1580" alt="Cyclone DDS Insight showing topics, writers and readers"></a>
+      </div>
+    </div>
+  </section>
   <div class="container-fluid section" id="highlights">
     <div class="highlights masthead-followup row m-0 border border-white section" id="row-1">
       <div class="col-12 col-md-4 p-3 p-md-5 bg-light border border-white section" id="fast-dependable">
@@ -165,7 +236,25 @@
       </div>
     </div>
   </div>
+  <section class="home-languages" aria-labelledby="home-languages-title">
+    <div>
+      <p class="home-eyebrow">One core. Multiple languages.</p>
+      <h4 id="home-languages-title">Built on C. Open to your language.</h4>
+      <p>A native C core with language bindings for your applications.</p>
+    </div>
+    <nav class="home-language-tree" aria-label="C core and its language bindings">
+      <a class="home-language-core" href="/docs/cyclonedds/latest/getting_started/index.html"><strong>C</strong><span>Cyclone DDS core</span></a>
+      <ul class="home-language-branches">
+        <li><a href="/docs/cyclonedds-cxx/latest/index.html"><strong>C++</strong><span>Binding <span aria-hidden="true">&rarr;</span></span></a></li>
+        <li><a href="/docs/cyclonedds-python/latest/index.html"><strong>Python</strong><span>Binding <span aria-hidden="true">&rarr;</span></span></a></li>
+        <li><a href="https://github.com/eclipse-cyclonedds/cyclonedds-rust"><strong>Rust</strong><span>Binding <span aria-hidden="true">&rarr;</span></span></a></li>
+        <li><span class="home-language-upcoming"><strong>Java</strong><span>Coming soon</span></span></li>
+        <li><span class="home-language-upcoming"><strong>C#</strong><span>Coming soon</span></span></li>
+      </ul>
+    </nav>
+  </section>
 </main>
+<script src="/js/home.js" defer></script>
 
         <footer class="ato-footer text-muted">
       <div class="container-fluid p-6 p-md-5">
