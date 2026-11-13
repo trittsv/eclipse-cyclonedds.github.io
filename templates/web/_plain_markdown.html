@@ -1,4 +1,4 @@
-{% set page = "deep-dives" if content.path == "/content/deep-dives.html" else content.category %}
+{% set page = "deep-dives" if content.path == "/content/deep-dives.html" else "faq" if content.path == "/content/faq.html" else content.category %}
 {% set title = "Eclipse Cyclone DDS - Deep Dives" if page == "deep-dives" else "Eclipse Cyclone DDS - FAQ" %}
 {% extends "_base.html" %}
 
@@ -10,11 +10,14 @@
 <link rel="stylesheet" href="/css/pygments.css">
 <link rel="stylesheet" href="/css/markdown.css">
 {% if page == "deep-dives" %}<link rel="stylesheet" href="/css/deep-dives.css">{% endif %}
+{% if page == "faq" %}<link rel="stylesheet" href="/css/faq.css">{% endif %}
 {% endblock head %}
 
 {% block content %}
 {% if page == "deep-dives" %}
 {% include "_deep_dives.html" %}
+{% elif page == "faq" %}
+{% include "_faq.html" %}
 {% else %}
 <main>
   <div class="container">
